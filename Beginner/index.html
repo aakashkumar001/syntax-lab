@@ -1,43 +1,20 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <style>
-     
-    </style>
+    <style></style>
   </head>
   <body>
-    <form id="user-form">
-      <label for="username">Username:</label>
-      <input
-        type="text"
-        id="username"
-        class="form-input"
-        placeholder="Enter your username"
-      />
-
-      <label for="email">Email:</label>
-      <input
-        type="email"
-        id="email"
-        class="form-input"
-        placeholder="Enter your email"
-      />
-
-      <button type="submit" class="btn" id="submit-btn">Submit</button>
-    </form>
-
-    <div id="flexbox">
-      <div class="a">1</div>
-      <div class="b">2</div>
-      <div class="c">3</div>
-      <div class="d">4</div>
-    </div>
+    <button id="loadbutton">Load Data</button>
+    <p id="status"></p>
 
     <script>
-      const form = document.getElementById("user-form");
-      form.addEventListener("submit", (event) => {
-        event.preventDefault();
-        const username = document.getElementById("username").value;
+      const button = document.getElementById("loadbutton");
+      const status = document.getElementById("status");
+
+      button.addEventListener("click", async () => {
+        status.textContent = "loading";
+        await new Promise((resolve) => setTimeout(resolve, 3000));
+        status.textContent = "loaded";
       });
     </script>
   </body>

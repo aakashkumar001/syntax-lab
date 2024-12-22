@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p id="instruction">Guess the color</p>
+    <div style="padding: 20px">
+      <button class="colorButton" style="background-color: red; width: 100px; height: 100px;"></button>
+      <button class="colorButton" style="background-color: blue; width: 100px; height: 100px"></button>
+      <button class="colorButton" style="background-color: green; width: 100px; height: 100px"></button>
+    </div>
+    <p id="result"></p>
+
+    <script>
+      const colors = ["red", "blue", "green"];
+      const winningColor = colors[Math.floor(Math.random() * colors.length)];
+      const result = document.getElementById("result");
+
+      document.querySelectorAll(".colorButton").forEach((button) => {
+        button.addEventListener("click", (e) => {
+          const selectedColor = e.target.style.backgroundColor;
+          if (selectedColor === winningColor) {
+            console.log(winningColor)
+            result.textContent = "You win!";
+            result.style.color = "green";
+          } else {
+            result.textContent = "Try Again";
+            result.style.color = "red";
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
